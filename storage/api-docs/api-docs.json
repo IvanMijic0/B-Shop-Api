@@ -1,0 +1,310 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "SSSD-APP API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/api",
+            "description": "API Server"
+        }
+    ],
+    "paths": {
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "User login",
+                "operationId": "8cb7742ae98d0990acb2907c4e00bf24",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "identifier",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "identifier": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "time": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        },
+                                        "time": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/register": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "User registration",
+                "operationId": "ed42f392010c301892e640067141676e",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "fullName",
+                                    "username",
+                                    "password",
+                                    "email",
+                                    "phoneNumber"
+                                ],
+                                "properties": {
+                                    "fullName": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email"
+                                    },
+                                    "phoneNumber": {
+                                        "type": "string",
+                                        "format": "phone"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registration successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "time": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "errors": {
+                                            "properties": {
+                                                "fullName": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "Full name must be at least 3 characters long."
+                                                    }
+                                                },
+                                                "phoneNumber": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "Invalid phone number."
+                                                    }
+                                                },
+                                                "username": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "Username must be at least 3 characters long."
+                                                    }
+                                                },
+                                                "email": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "Invalid email address."
+                                                    }
+                                                },
+                                                "password": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "Password must be at least 8 characters long."
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "time": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/validateToken": {
+            "get": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Validate user token",
+                "operationId": "dd8a5469f450b623cfe1ea92eae82d15",
+                "responses": {
+                    "200": {
+                        "description": "Token is valid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "title": "User",
+                "description": "User model",
+                "properties": {
+                    "id": {
+                        "description": "The unique identifier for the user",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "full_name": {
+                        "description": "The full name of the user",
+                        "type": "string",
+                        "example": "John Doe"
+                    },
+                    "username": {
+                        "description": "The username of the user",
+                        "type": "string",
+                        "example": "johndoe"
+                    },
+                    "email": {
+                        "description": "The email address of the user",
+                        "type": "string",
+                        "format": "email",
+                        "example": "johndoe@example.com"
+                    },
+                    "password": {
+                        "description": "The password of the user (hashed)",
+                        "type": "string",
+                        "format": "password",
+                        "example": "$2y$10$N0wbN10w.0.yBhEWwH2fveCAeAxFxuIQJ4O7QHBTQm7v9eN6LpfSi"
+                    },
+                    "phone_number": {
+                        "description": "The phone number of the user",
+                        "type": "string",
+                        "example": "+1234567890"
+                    },
+                    "email_verified_at": {
+                        "description": "The timestamp of email verification",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2022-03-28T10:15:00Z"
+                    },
+                    "created_at": {
+                        "description": "The timestamp of when the user was created",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2022-03-28T10:15:00Z"
+                    },
+                    "updated_at": {
+                        "description": "The timestamp of when the user was last updated",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2022-03-28T10:15:00Z"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
