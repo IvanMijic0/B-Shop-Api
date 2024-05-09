@@ -15,7 +15,8 @@
         "laravel/tinker": "^2.8",
         "spomky-labs/otphp": "^11.2",
         "tymon/jwt-auth": "^2.1",
-        "zircote/swagger-php": "^4.8"
+        "zircote/swagger-php": "^4.8",
+      "ext-curl": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

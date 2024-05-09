@@ -2,18 +2,21 @@
 
 namespace App\Http\Services;
 
-use Illuminate\Support\Facades\Log;
+use Exception;
 use App\Utils\CurlUtil;
 
 class HaveIBeenPwnedService
 {
-    private $curl;
+    private CurlUtil $curl;
 
     public function __construct()
     {
         $this->curl = CurlUtil::getInstance();
     }
 
+    /**
+     * @throws Exception
+     */
     public function checkPassword(string $password): bool
     {
         $sha1Password = strtoupper(sha1($password));
@@ -22,11 +25,6 @@ class HaveIBeenPwnedService
         $suffix = substr($sha1Password, 5);
 
         $response = $this->curl->get("https://api.pwnedpasswords.com/range/" . $prefix);
-
-        if ($response === false) {
-            Log::error('Could not retrieve data from the API.');
-            return false;
-        }
 
         if (!str_contains($response, $suffix)) {
             return true;

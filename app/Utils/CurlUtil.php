@@ -2,10 +2,12 @@
 
 namespace App\Utils;
 
+use Exception;
+
 class CurlUtil
 {
-    private static $instance;
-    private $curl;
+    private static CurlUtil $instance;
+    private mixed $curl;
 
     public const BASE_HEADERS = [
         'Content-Type: application/json'
@@ -31,6 +33,9 @@ class CurlUtil
         return self::$instance;
     }
 
+    /**
+     * @throws Exception
+     */
     public function get($url, $headers = []): string
     {
         $formattedHeaders = $this->formatHeaders($headers);
@@ -53,12 +58,15 @@ class CurlUtil
         $response = curl_exec($this->curl);
         if ($response === false) {
             $errorMessage = curl_error($this->curl);
-            throw new \Exception("cURL error: $errorMessage");
+            throw new Exception("cURL error: $errorMessage");
         }
 
         return $response;
     }
 
+    /**
+     * @throws Exception
+     */
     public function post($url, $data, $headers = []): string
     {
         $formattedHeaders = $this->formatHeaders($headers);
@@ -82,12 +90,15 @@ class CurlUtil
         $response = curl_exec($this->curl);
         if ($response === false) {
             $errorMessage = curl_error($this->curl);
-            throw new \Exception("cURL error: $errorMessage");
+            throw new Exception("cURL error: $errorMessage");
         }
 
         return $response;
     }
 
+    /**
+     * @throws Exception
+     */
     public function put($url, $data, $headers = []): string
     {
         $formattedHeaders = $this->formatHeaders($headers);
@@ -111,12 +122,15 @@ class CurlUtil
         $response = curl_exec($this->curl);
         if ($response === false) {
             $errorMessage = curl_error($this->curl);
-            throw new \Exception("cURL error: $errorMessage");
+            throw new Exception("cURL error: $errorMessage");
         }
 
         return $response;
     }
 
+    /**
+     * @throws Exception
+     */
     public function patch($url, $data, $headers = []): string
     {
         $formattedHeaders = $this->formatHeaders($headers);
@@ -140,12 +154,15 @@ class CurlUtil
         $response = curl_exec($this->curl);
         if ($response === false) {
             $errorMessage = curl_error($this->curl);
-            throw new \Exception("cURL error: $errorMessage");
+            throw new Exception("cURL error: $errorMessage");
         }
 
         return $response;
     }
 
+    /**
+     * @throws Exception
+     */
     public function delete($url, $headers = [])
     {
         $formattedHeaders = $this->formatHeaders($headers);
@@ -168,7 +185,7 @@ class CurlUtil
         $response = curl_exec($this->curl);
         if ($response === false) {
             $errorMessage = curl_error($this->curl);
-            throw new \Exception("cURL error: $errorMessage");
+            throw new Exception("cURL error: $errorMessage");
         }
 
         $httpCode = curl_getinfo($this->curl, CURLINFO_HTTP_CODE);
@@ -176,11 +193,14 @@ class CurlUtil
         if ($httpCode == 200) {
             return json_decode($response, true);
         } else {
-            throw new \Exception("Delete request failed with status code: $httpCode");
+            throw new Exception("Delete request failed with status code: $httpCode");
         }
     }
 
-    public function encodedPost($url, $data, $headers = [])
+    /**
+     * @throws Exception
+     */
+    public function encodedPost($url, $data, $headers = []): bool|string
     {
         curl_setopt_array($this->curl, [
             CURLOPT_URL => $url,
@@ -195,7 +215,7 @@ class CurlUtil
         $response = curl_exec($this->curl);
         if ($response === false) {
             $errorMessage = curl_error($this->curl);
-            throw new \Exception("cURL error: $errorMessage");
+            throw new Exception("cURL error: $errorMessage");
         }
 
         return $response;

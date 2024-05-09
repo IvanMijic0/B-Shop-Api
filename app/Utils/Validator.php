@@ -2,11 +2,10 @@
 
 namespace App\Utils;
 
-use Illuminate\Support\Facades\Log;
 use App\Http\Services\HaveIBeenPwnedService;
-use \libphonenumber\PhoneNumberUtil;
-use \libphonenumber\NumberParseException;
-use \libphonenumber\PhoneNumberType;
+use libphonenumber\PhoneNumberUtil;
+use libphonenumber\NumberParseException;
+use libphonenumber\PhoneNumberType;
 use Illuminate\Support\Facades\Cache;
 
 class Validator
@@ -94,7 +93,6 @@ class Validator
 
         return null;
     }
-
 
     public static function username(string $username): ?string
     {

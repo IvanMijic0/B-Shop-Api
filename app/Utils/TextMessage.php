@@ -2,10 +2,13 @@
 
 namespace App\Utils;
 
+use CurlHandle;
+use Exception;
+
 class TextMessage
 {
-    private static $instance;
-    private $curl;
+    private static TextMessage $instance;
+    private false|CurlHandle $curl;
 
     private function __construct()
     {
@@ -14,9 +17,7 @@ class TextMessage
 
     public function __destruct()
     {
-        if ($this->curl !== null) {
-            curl_close($this->curl);
-        }
+        curl_close($this->curl);
     }
 
     public static function getInstance(): TextMessage
@@ -28,7 +29,10 @@ class TextMessage
         return self::$instance;
     }
 
-    public function send($from, $message, $number)
+    /**
+     * @throws Exception
+     */
+    public function send($from, $message, $number): bool|string
     {
         curl_setopt_array(
             $this->curl,
@@ -54,7 +58,7 @@ class TextMessage
 
         if ($response === false) {
             $errorMessage = curl_error($this->curl);
-            throw new \Exception("cURL error: $errorMessage");
+            throw new Exception("cURL error: $errorMessage");
         }
 
         return $response;

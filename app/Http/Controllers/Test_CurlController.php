@@ -6,11 +6,12 @@ use App\Http\Controllers\Controller;
 
 use App\Utils\CurlUtil;
 use App\Utils\TextMessage;
+use Exception;
 
 class Test_CurlController extends Controller
 {
-    private $my_axios;
-    private $messager;
+    private CurlUtil $my_axios;
+    private TextMessage $messager;
 
     public function __construct()
     {
@@ -18,6 +19,9 @@ class Test_CurlController extends Controller
         $this->messager = TextMessage::getInstance();
     }
 
+    /**
+     * @throws Exception
+     */
     public function sendTextMessage(): string
     {
         $response = $this->messager->send(
@@ -29,6 +33,9 @@ class Test_CurlController extends Controller
         return json_decode($response);
     }
 
+    /**
+     * @throws Exception
+     */
     public function testGet(): string
     {
         $response = $this->my_axios->get(
@@ -42,6 +49,9 @@ class Test_CurlController extends Controller
         return json_decode($response);
     }
 
+    /**
+     * @throws Exception
+     */
     public function testPost(): string
     {
         $response = $this->my_axios->post(
@@ -58,6 +68,9 @@ class Test_CurlController extends Controller
         return json_decode($response);
     }
 
+    /**
+     * @throws Exception
+     */
     public function testPut(): string
     {
         $response = $this->my_axios->put(
@@ -75,6 +88,9 @@ class Test_CurlController extends Controller
         return json_decode($response);
     }
 
+    /**
+     * @throws Exception
+     */
     public function testPut2(): string
     {
         $response = $this->my_axios->put(
@@ -92,6 +108,9 @@ class Test_CurlController extends Controller
         return json_decode($response);
     }
 
+    /**
+     * @throws Exception
+     */
     public function testPatch(): string
     {
         $response = $this->my_axios->patch(
@@ -108,15 +127,16 @@ class Test_CurlController extends Controller
         return json_decode($response);
     }
 
+    /**
+     * @throws Exception
+     */
     public function testDelete(): string
     {
-        $response = $this->my_axios->delete(
+        return $this->my_axios->delete(
             'https://ens5v92x5jg1.x.pipedream.net/users/123',
             [
                 'Authorization' => 'Bearer {token}',
             ]
         );
-
-        return $response;
     }
 }
