@@ -24,11 +24,13 @@ class UserFactory extends Factory
     {
         return [
             'full_name' => $this->faker->name(),
-            'username' => $this->faker->userName(),
+            'username' => $this->faker->unique()->userName(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
             'phone_number' => $this->faker->phoneNumber(),
+            'image_url' => $this->faker->imageUrl(),
+            'personal_details' => $this->faker->sentence(),
         ];
     }
 

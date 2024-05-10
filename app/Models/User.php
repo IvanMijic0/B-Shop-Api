@@ -3,12 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 /**
+ * @property mixed $id
+ * @property mixed $full_name
+ * @property mixed $username
+ * @property mixed $email
+ * @property mixed $phone_number
  * @OA\Schema(
  *     title="User",
  *     description="User model",
@@ -87,7 +94,9 @@ class User extends Authenticatable implements JWTSubject
         'username',
         'email',
         'password',
-        'phone_number'
+        'phone_number',
+        'image_url',
+        'personal_details',
     ];
 
     /**
@@ -115,7 +124,7 @@ class User extends Authenticatable implements JWTSubject
      *
      * @return mixed
      */
-    public function getJWTIdentifier()
+    public function getJWTIdentifier(): mixed
     {
         return $this->getKey();
     }
@@ -125,7 +134,7 @@ class User extends Authenticatable implements JWTSubject
      *
      * @return array
      */
-    public function getJWTCustomClaims()
+    public function getJWTCustomClaims(): array
     {
         return [
             'user' => [
@@ -141,16 +150,36 @@ class User extends Authenticatable implements JWTSubject
     /**
      * Get the TOTP secret record associated with the user.
      */
-    public function totpSecret()
+    public function totpSecret(): HasOne
     {
         return $this->hasOne(TOTPSecret::class);
     }
 
     /**
-     * Get the Personal Acces Token record associated with the user.
+     * Get the Personal Access Token record associated with the user.
      */
-    public function personalAccessToken()
+    public function personalAccessToken(): HasMany
     {
         return $this->hasMany(PersonalAccessToken::class);
+    }
+
+    public function notifications(): HasMany
+    {
+        return $this->hasMany(Notification::class);
+    }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function carts(): HasMany
+    {
+        return $this->hasMany(Cart::class);
     }
 }

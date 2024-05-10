@@ -18,6 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('phone_number')->nullable(); 
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('image_url')->nullable();
+            $table->string('personal_details')->nullable();
             $table->string('password');
             $table->boolean('is_totp_setup')->default(false);
             $table->timestamps();
