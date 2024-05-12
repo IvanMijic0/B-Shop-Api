@@ -129,7 +129,7 @@ class Validator
         }
 
         if (!self::validatePasswordStructure($password)) {
-            return 'Password must contain at least one lowercase letter, one uppercase letter, one digit, and no spaces.';
+            return 'Password must contain at least one lowercase letter, one uppercase letter, one digit, one special character and no spaces.';
         }
 
         if (!self::validateHaveIBeenPwned($password)) {
