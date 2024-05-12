@@ -6,7 +6,7 @@
     },
     "servers": [
         {
-            "url": "http://localhost/api",
+            "url": "https://b-shop-api-5ntn.onrender.com/api",
             "description": "API Server"
         }
     ],
@@ -445,13 +445,1158 @@
                 ]
             }
         },
-        "/api/users": {
+        "/carts": {
+            "get": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "Get list of carts",
+                "description": "Returns list of carts",
+                "operationId": "bf4fcfa5c4963324af8f7c4709190694",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Cart"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "Create a new cart",
+                "description": "Create a new cart",
+                "operationId": "4166fd0418f4557cdaaf8dfcc29eb00d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Cart"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cart"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/carts/{id}": {
+            "get": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "Get specified cart",
+                "description": "Returns specified cart",
+                "operationId": "2a3c77b10b2ac68693ab31bd63102a98",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the cart",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cart"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "Update specified cart",
+                "description": "Update specified cart",
+                "operationId": "ab922d9c70155dfe7fc1f040ec36420d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the cart",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Cart"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cart"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Carts"
+                ],
+                "summary": "Delete specified cart",
+                "description": "Delete specified cart",
+                "operationId": "5f325f0730a847327428a8f5f80423a9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the cart",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/categories": {
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Get list of categories",
+                "description": "Returns list of categories",
+                "operationId": "ead5fb1cf2a7453acb2e37928a1b1eaf",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Category"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Create a new category",
+                "description": "Create a new category",
+                "operationId": "bb02f0320882db37f99574196577e446",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Category"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Category"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/categories/{id}": {
+            "get": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Get specified category",
+                "description": "Returns specified category",
+                "operationId": "4cdf41756315109f1efc72787db5830a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the category",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Category"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Update specified category",
+                "description": "Update specified category",
+                "operationId": "19954b1f8aa4916b5f032dc28ea36a24",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the category",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Category"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Category"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Categories"
+                ],
+                "summary": "Delete specified category",
+                "description": "Delete specified category",
+                "operationId": "f1b8af6e84bd52b9594d98bde748ebd6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the category",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/send-mail": {
+            "post": {
+                "tags": [
+                    "Mailer"
+                ],
+                "summary": "Send an email",
+                "description": "Send an email to the specified recipient.",
+                "operationId": "sendMail",
+                "requestBody": {
+                    "description": "Email details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "to",
+                                    "subject",
+                                    "body"
+                                ],
+                                "properties": {
+                                    "to": {
+                                        "type": "string",
+                                        "example": "recipient@example.com"
+                                    },
+                                    "subject": {
+                                        "type": "string",
+                                        "example": "Subject of the email"
+                                    },
+                                    "body": {
+                                        "type": "string",
+                                        "example": "Body of the email"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Email sent successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Email sent successfully."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failed to send email",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Failed to send email."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/notifications": {
+            "get": {
+                "tags": [
+                    "Notifications"
+                ],
+                "summary": "Get list of notifications",
+                "description": "Returns list of notifications",
+                "operationId": "0f031f66cd8c52bf73e89fb2d050ad83",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Notification"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Notifications"
+                ],
+                "summary": "Create a new notification",
+                "description": "Create a new notification",
+                "operationId": "258ba7c348fd4283c6b3802a69fe2fb0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Notification"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Notification"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/notifications/{id}": {
+            "get": {
+                "tags": [
+                    "Notifications"
+                ],
+                "summary": "Get specified notification",
+                "description": "Returns specified notification",
+                "operationId": "0c8e017ab6d765f82f97368b80f52b8e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the notification",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Notification"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Notifications"
+                ],
+                "summary": "Update specified notification",
+                "description": "Update specified notification",
+                "operationId": "38c5f13acd3d0b84545d309539e6b972",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the notification",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Notification"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Notification"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Notifications"
+                ],
+                "summary": "Delete specified notification",
+                "description": "Delete specified notification",
+                "operationId": "ccdcc730b2088097dd94128f24960dbf",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the notification",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/orders": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Get list of orders",
+                "description": "Returns list of orders",
+                "operationId": "325fd3d55bbe9bb39645269928fa4983",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Order"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Create a new order",
+                "description": "Create a new order",
+                "operationId": "445bab4f7dc9ea6fcd54f286c0209478",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Order"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Order"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/orders/{id}": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Get specified order",
+                "description": "Returns specified order",
+                "operationId": "f088d34a2737782215f435f854e31de5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the order",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Order"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Update specified order",
+                "description": "Update specified order",
+                "operationId": "54c2858108887d7a1252bcc4325158c2",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the order",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Order"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Order"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Delete specified order",
+                "description": "Delete specified order",
+                "operationId": "deb80b1c70721ac0812c9574580984c1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the order",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/payments": {
+            "get": {
+                "tags": [
+                    "Payments"
+                ],
+                "summary": "Get list of payments",
+                "description": "Returns list of payments",
+                "operationId": "65567ad73dd4b0cc01c4856a6bb7e600",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Payment"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Payments"
+                ],
+                "summary": "Create a new payment",
+                "description": "Create a new payment",
+                "operationId": "3cb7bc2c2ad5498b4ad9521811750cc1",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Payment"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Payment"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/payments/{id}": {
+            "get": {
+                "tags": [
+                    "Payments"
+                ],
+                "summary": "Get specified payment",
+                "description": "Returns specified payment",
+                "operationId": "a4207c19fecbebc99932a8348b19adf1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the payment",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Payment"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Payments"
+                ],
+                "summary": "Update specified payment",
+                "description": "Update specified payment",
+                "operationId": "7f3042f886092282c90cf678fa8b0d78",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the payment",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Payment"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Payment"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Payments"
+                ],
+                "summary": "Delete specified payment",
+                "description": "Delete specified payment",
+                "operationId": "6ee6ad54e3a047f39a06ffcb4cfc6b7a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the payment",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get list of products",
+                "description": "Returns list of products",
+                "operationId": "c1ff6f862214e1896c59cfe0491ce0e8",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Product"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Create a new product",
+                "description": "Create a new product",
+                "operationId": "399770d33fa4672f1216707d0e236763",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Product"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products/{id}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get specified product",
+                "description": "Returns specified product",
+                "operationId": "b46f4aa73232d0368eee698a082342a4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the product",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Update specified product",
+                "description": "Update specified product",
+                "operationId": "1419d479f9340e30e67fe21a2ca525b7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the product",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Product"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Delete specified product",
+                "description": "Delete specified product",
+                "operationId": "fe34b364a3f192305598b65d04d06b5d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the product",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/reviews": {
+            "get": {
+                "tags": [
+                    "Reviews"
+                ],
+                "summary": "Get list of reviews",
+                "description": "Returns list of reviews",
+                "operationId": "a0d00e73ae8bc8abf7a182a3bcc3e145",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Review"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reviews"
+                ],
+                "summary": "Create a new review",
+                "description": "Create a new review",
+                "operationId": "9fe745d363761b681b0e4f1d129e2456",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Review"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Review"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/reviews/{id}": {
+            "get": {
+                "tags": [
+                    "Reviews"
+                ],
+                "summary": "Get specified review",
+                "description": "Returns specified review",
+                "operationId": "59c58623cd284fa1d22b01b6eaa87729",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the review",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Review"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reviews"
+                ],
+                "summary": "Update specified review",
+                "description": "Update specified review",
+                "operationId": "aab08b97bf5c417a4ae9061ecddf416c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the review",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Review"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Review"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reviews"
+                ],
+                "summary": "Delete specified review",
+                "description": "Delete specified review",
+                "operationId": "27b37ca28fa012ce66153cad66bedfc9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the review",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/users": {
             "get": {
                 "tags": [
                     "Users"
                 ],
                 "summary": "Get all users",
-                "operationId": "c457726701591d1183b53aa71fc13441",
+                "operationId": "7e2f5799553ec93c9c43e2a58490d447",
                 "responses": {
                     "200": {
                         "description": "List of users",
@@ -478,7 +1623,7 @@
                     "Users"
                 ],
                 "summary": "Create a new user",
-                "operationId": "592819a0265360b2014512d6dbfaf0e7",
+                "operationId": "a1fce870c566eb5fc0cf3178ec5d2fed",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -508,13 +1653,13 @@
                 ]
             }
         },
-        "/api/users/{id}": {
+        "/users/{id}": {
             "get": {
                 "tags": [
                     "Users"
                 ],
                 "summary": "Get a specific user",
-                "operationId": "36a33ff774d5cba33c039dec2c3e0287",
+                "operationId": "910a0c7cf580e1c605648d82a4e57f46",
                 "parameters": [
                     {
                         "name": "id",
@@ -552,7 +1697,7 @@
                     "Users"
                 ],
                 "summary": "Update a specific user",
-                "operationId": "b9091397c8b25f12c6adb74be6ce3a5a",
+                "operationId": "ddfe232db1870b82493bf8bd25596d37",
                 "parameters": [
                     {
                         "name": "id",
@@ -600,7 +1745,7 @@
                     "Users"
                 ],
                 "summary": "Delete a specific user",
-                "operationId": "fa56cffde745d3f152f95cbacd936c0b",
+                "operationId": "43dd20becb1f47444e484cbb18ce345c",
                 "parameters": [
                     {
                         "name": "id",
@@ -630,6 +1775,444 @@
     },
     "components": {
         "schemas": {
+            "Cart": {
+                "title": "Cart",
+                "description": "Cart model",
+                "properties": {
+                    "id": {
+                        "description": "Unique identifier for the cart item",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "user_id": {
+                        "description": "User ID associated with the cart item",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "product_id": {
+                        "description": "Product ID associated with the cart item",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "quantity": {
+                        "description": "Quantity of the product in the cart",
+                        "type": "integer",
+                        "example": "2"
+                    },
+                    "created_at": {
+                        "description": "Date and time when the cart item was created",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 10:00:00"
+                    },
+                    "updated_at": {
+                        "description": "Date and time when the cart item was last updated",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 10:30:00"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/User"
+                    },
+                    "product": {
+                        "$ref": "#/components/schemas/Product"
+                    }
+                },
+                "type": "object"
+            },
+            "Category": {
+                "title": "Category",
+                "description": "Category model",
+                "properties": {
+                    "id": {
+                        "description": "Unique identifier for the category",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "name": {
+                        "description": "Name of the category",
+                        "type": "string",
+                        "example": "Electronics"
+                    },
+                    "description": {
+                        "description": "Description of the category",
+                        "type": "string",
+                        "example": "Products related to electronics."
+                    },
+                    "created_at": {
+                        "description": "Date and time when the category was created",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 09:00:00"
+                    },
+                    "updated_at": {
+                        "description": "Date and time when the category was last updated",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 09:30:00"
+                    },
+                    "products": {
+                        "description": "Products associated with the category",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Product"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Notification": {
+                "title": "Notification",
+                "description": "Notification model",
+                "properties": {
+                    "id": {
+                        "description": "Unique identifier for the notification",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "user_id": {
+                        "description": "User ID associated with the notification",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "message": {
+                        "description": "Content of the notification",
+                        "type": "string",
+                        "example": "You have a new message."
+                    },
+                    "notification_type": {
+                        "description": "Type of the notification",
+                        "type": "string",
+                        "example": "email"
+                    },
+                    "created_at": {
+                        "description": "Date and time when the notification was created",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 08:00:00"
+                    },
+                    "updated_at": {
+                        "description": "Date and time when the notification was last updated",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 08:30:00"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/User"
+                    }
+                },
+                "type": "object"
+            },
+            "Order": {
+                "title": "Order",
+                "description": "Order model",
+                "properties": {
+                    "id": {
+                        "description": "Unique identifier for the order",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "user_id": {
+                        "description": "User ID associated with the order",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "product_id": {
+                        "description": "Product ID associated with the order",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "quantity": {
+                        "description": "Quantity of the product in the order",
+                        "type": "integer",
+                        "example": "2"
+                    },
+                    "order_status": {
+                        "description": "Status of the order",
+                        "type": "string",
+                        "example": "pending"
+                    },
+                    "tracking_status": {
+                        "description": "Status of the order tracking",
+                        "type": "string",
+                        "example": "shipped"
+                    },
+                    "created_at": {
+                        "description": "Date and time when the order was created",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 07:00:00"
+                    },
+                    "updated_at": {
+                        "description": "Date and time when the order was last updated",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 07:30:00"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/User"
+                    },
+                    "payment": {
+                        "$ref": "#/components/schemas/Payment"
+                    }
+                },
+                "type": "object"
+            },
+            "Payment": {
+                "title": "Payment",
+                "description": "Payment model",
+                "properties": {
+                    "id": {
+                        "description": "Unique identifier for the payment",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "order_id": {
+                        "description": "Order ID associated with the payment",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "payment_method": {
+                        "description": "Payment method used",
+                        "type": "string",
+                        "example": "credit_card"
+                    },
+                    "payment_status": {
+                        "description": "Status of the payment",
+                        "type": "string",
+                        "example": "completed"
+                    },
+                    "payment_amount": {
+                        "description": "Amount of the payment",
+                        "type": "number",
+                        "format": "float",
+                        "example": "100.00"
+                    },
+                    "buyer_id": {
+                        "description": "ID of the buyer",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "seller_id": {
+                        "description": "ID of the seller",
+                        "type": "integer",
+                        "example": "2"
+                    },
+                    "created_at": {
+                        "description": "Date and time when the payment was created",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 06:00:00"
+                    },
+                    "updated_at": {
+                        "description": "Date and time when the payment was last updated",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 06:30:00"
+                    },
+                    "order": {
+                        "$ref": "#/components/schemas/Order"
+                    }
+                },
+                "type": "object"
+            },
+            "PersonalAccessToken": {
+                "title": "PersonalAccessToken",
+                "description": "Personal Access Token model",
+                "properties": {
+                    "id": {
+                        "description": "Unique identifier for the personal access token",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "user_id": {
+                        "description": "User ID associated with the personal access token",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "token": {
+                        "description": "The access token",
+                        "type": "string",
+                        "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."
+                    },
+                    "last_used_at": {
+                        "description": "Date and time when the token was last used",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 05:00:00"
+                    },
+                    "expires_at": {
+                        "description": "Date and time when the token expires",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-06-12 05:00:00"
+                    },
+                    "created_at": {
+                        "description": "Date and time when the personal access token was created",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 04:00:00"
+                    },
+                    "updated_at": {
+                        "description": "Date and time when the personal access token was last updated",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 04:30:00"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/User"
+                    }
+                },
+                "type": "object"
+            },
+            "Product": {
+                "title": "Product",
+                "description": "Product model",
+                "properties": {
+                    "id": {
+                        "description": "Unique identifier for the product",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "name": {
+                        "description": "Name of the product",
+                        "type": "string",
+                        "example": "Smartphone"
+                    },
+                    "description": {
+                        "description": "Description of the product",
+                        "type": "string",
+                        "example": "A high-end smartphone with advanced features."
+                    },
+                    "price": {
+                        "description": "Price of the product",
+                        "type": "number",
+                        "format": "float",
+                        "example": "599.99"
+                    },
+                    "created_at": {
+                        "description": "Date and time when the product was created",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 03:00:00"
+                    },
+                    "updated_at": {
+                        "description": "Date and time when the product was last updated",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 03:30:00"
+                    },
+                    "category": {
+                        "description": "Categories associated with the product",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Category"
+                        }
+                    },
+                    "reviews": {
+                        "description": "Reviews associated with the product",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Review"
+                        }
+                    },
+                    "carts": {
+                        "description": "Carts associated with the product",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Cart"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Review": {
+                "title": "Review",
+                "description": "Review model",
+                "properties": {
+                    "id": {
+                        "description": "Unique identifier for the review",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "user_id": {
+                        "description": "User ID associated with the review",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "product_id": {
+                        "description": "Product ID associated with the review",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "rating": {
+                        "description": "Rating given in the review",
+                        "type": "integer",
+                        "example": "4"
+                    },
+                    "review": {
+                        "description": "Content of the review",
+                        "type": "string",
+                        "example": "This product is great!"
+                    },
+                    "created_at": {
+                        "description": "Date and time when the review was created",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 02:00:00"
+                    },
+                    "updated_at": {
+                        "description": "Date and time when the review was last updated",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 02:30:00"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/User"
+                    },
+                    "product": {
+                        "$ref": "#/components/schemas/Product"
+                    }
+                },
+                "type": "object"
+            },
+            "TOTPSecret": {
+                "title": "TOTPSecret",
+                "description": "TOTP Secret model",
+                "properties": {
+                    "id": {
+                        "description": "Unique identifier for the TOTP secret",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "user_id": {
+                        "description": "User ID associated with the TOTP secret",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "secret": {
+                        "description": "The TOTP secret key",
+                        "type": "string",
+                        "example": "JBSWY3DPEHPK3PXP"
+                    },
+                    "created_at": {
+                        "description": "Date and time when the TOTP secret was created",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 01:00:00"
+                    },
+                    "updated_at": {
+                        "description": "Date and time when the TOTP secret was last updated",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2024-05-12 01:30:00"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/User"
+                    }
+                },
+                "type": "object"
+            },
             "User": {
                 "title": "User",
                 "description": "User model",
@@ -697,6 +2280,38 @@
         }
     },
     "tags": [
+        {
+            "name": "Carts",
+            "description": "Operations about carts"
+        },
+        {
+            "name": "Categories",
+            "description": "Operations about categories"
+        },
+        {
+            "name": "Mailer",
+            "description": "Operations related to email sending"
+        },
+        {
+            "name": "Notifications",
+            "description": "Operations related to notifications"
+        },
+        {
+            "name": "Orders",
+            "description": "Operations related to orders"
+        },
+        {
+            "name": "Payments",
+            "description": "Operations related to payments"
+        },
+        {
+            "name": "Products",
+            "description": "Operations related to products"
+        },
+        {
+            "name": "Reviews",
+            "description": "Operations related to reviews"
+        },
         {
             "name": "Users",
             "description": "API Endpoints for managing users"
