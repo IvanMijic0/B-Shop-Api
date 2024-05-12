@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/sh
+set -e
+
 echo "Running composer"
 composer install --no-dev --working-dir=/var/www/html
 
@@ -10,3 +12,5 @@ php artisan route:cache
 
 echo "Running migrations..."
 php artisan migrate --force
+
+echo "Setup complete."
