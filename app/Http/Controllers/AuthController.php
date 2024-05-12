@@ -265,7 +265,7 @@ class AuthController extends Controller
     }
 
     /**
-     * @OA\Post(
+     * @OA\Get(
      *     path="/auth/generateTOTPSecret",
      *     tags={"Authentication"},
      *     summary="Generate TOTP Secret",
@@ -311,7 +311,7 @@ class AuthController extends Controller
     }
 
     /**
-     * @OA\Post(
+     * @OA\Get(
      *     path="/auth/generateTOTPQRCode",
      *     tags={"Authentication"},
      *     summary="Generate TOTP QR Code",
