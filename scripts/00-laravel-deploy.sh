@@ -9,8 +9,8 @@ composer install --no-dev --working-dir=/var/www/html
 #php artisan db:seed
 
 #echo "Running vite..."
-#npm install
-#npm run build
+npm install
+npm run build
 
 echo "Getting tlds"
 php artisan app:update-t-l-d-array
