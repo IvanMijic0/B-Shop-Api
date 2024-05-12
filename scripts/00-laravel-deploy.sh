@@ -1,6 +1,4 @@
-#!/bin/sh
-set -e
-
+#!/usr/bin/env bash
 echo "Running composer"
 composer install --no-dev --working-dir=/var/www/html
 
@@ -13,4 +11,8 @@ php artisan route:cache
 echo "Running migrations..."
 php artisan migrate --force
 
-echo "Setup complete."
+echo "Running seeders..."
+php artisan db:seed --force
+
+echo "Getting tlds"
+php artisan app:update-t-l-d-array
