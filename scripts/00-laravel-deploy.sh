@@ -14,3 +14,6 @@ composer install --no-dev --working-dir=/var/www/html
 
 echo "Getting tlds"
 php artisan app:update-t-l-d-array
+
+echo "Generating swagger"
+php artisan l5-swagger:generate
