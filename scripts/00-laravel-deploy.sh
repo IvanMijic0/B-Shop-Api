@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 echo "Running composer"
-composer global require hirak/prestissimo
 composer install --no-dev --working-dir=/var/www/html
 
-echo "generating application key..."
-php artisan key:generate --show
+#echo "Running migrations..."
+#php artisan migrate --force
 
-echo "Caching config..."
-php artisan config:cache
+#echo "Running seeders..."
+#php artisan db:seed
 
-echo "Caching routes..."
-php artisan route:cache
+#echo "Running vite..."
+#npm install
+#npm run build
 
 echo "Getting tlds"
 php artisan app:update-t-l-d-array
