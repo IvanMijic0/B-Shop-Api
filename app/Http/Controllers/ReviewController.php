@@ -28,9 +28,9 @@ class ReviewController extends Controller
      *              type="array",
      *              @OA\Items(ref="#/components/schemas/Review")
      *          )
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function index(): JsonResponse
     {
@@ -51,9 +51,9 @@ class ReviewController extends Controller
      *          response=201,
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/Review")
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function store(Request $request): JsonResponse
     {
@@ -77,9 +77,9 @@ class ReviewController extends Controller
      *          response=200,
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/Review")
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function show(Review $review): JsonResponse
     {
@@ -107,9 +107,9 @@ class ReviewController extends Controller
      *          response=200,
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/Review")
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function update(Request $request, Review $review): JsonResponse
     {
@@ -132,9 +132,9 @@ class ReviewController extends Controller
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation"
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function destroy(Review $review): JsonResponse
     {

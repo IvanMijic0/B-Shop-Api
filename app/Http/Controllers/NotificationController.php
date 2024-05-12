@@ -27,9 +27,9 @@ class NotificationController extends Controller
      *              type="array",
      *              @OA\Items(ref="#/components/schemas/Notification")
      *          )
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function index(): JsonResponse
     {
@@ -50,9 +50,9 @@ class NotificationController extends Controller
      *          response=201,
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/Notification")
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function store(Request $request): JsonResponse
     {
@@ -76,9 +76,9 @@ class NotificationController extends Controller
      *          response=200,
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/Notification")
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function show(Notification $notification): JsonResponse
     {
@@ -106,9 +106,9 @@ class NotificationController extends Controller
      *          response=200,
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/Notification")
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function update(Request $request, Notification $notification): JsonResponse
     {
@@ -131,9 +131,9 @@ class NotificationController extends Controller
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation"
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function destroy(Notification $notification): JsonResponse
     {

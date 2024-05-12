@@ -28,9 +28,9 @@ class ProductController extends Controller
      *              type="array",
      *              @OA\Items(ref="#/components/schemas/Product")
      *          )
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function index(): JsonResponse
     {
@@ -51,9 +51,9 @@ class ProductController extends Controller
      *          response=201,
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/Product")
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function store(Request $request): JsonResponse
     {
@@ -77,9 +77,9 @@ class ProductController extends Controller
      *          response=200,
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/Product")
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function show(Product $product): JsonResponse
     {
@@ -107,9 +107,9 @@ class ProductController extends Controller
      *          response=200,
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/Product")
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function update(Request $request, Product $product): JsonResponse
     {
@@ -132,9 +132,9 @@ class ProductController extends Controller
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation"
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function destroy(Product $product): JsonResponse
     {

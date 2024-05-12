@@ -28,9 +28,9 @@ class CategoryController extends Controller
      *              type="array",
      *              @OA\Items(ref="#/components/schemas/Category")
      *          )
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function index(): JsonResponse
     {
@@ -51,9 +51,9 @@ class CategoryController extends Controller
      *          response=201,
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/Category")
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function store(Request $request): JsonResponse
     {
@@ -77,9 +77,9 @@ class CategoryController extends Controller
      *          response=200,
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/Category")
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function show(Category $category): JsonResponse
     {
@@ -107,9 +107,9 @@ class CategoryController extends Controller
      *          response=200,
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/Category")
-     *      )
-     * ),
-     * security={{"bearerAuth": {}}}
+     *      ),
+     *    security={{"bearerAuth": {}}}
+     * )
      */
     public function update(Request $request, Category $category): JsonResponse
     {
@@ -132,9 +132,9 @@ class CategoryController extends Controller
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation"
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *    security={{"bearerAuth": {}}}
+     * )
      */
     public function destroy(Category $category): JsonResponse
     {

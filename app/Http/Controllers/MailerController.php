@@ -44,9 +44,9 @@ class MailerController extends Controller
      *          @OA\JsonContent(
      *              @OA\Property(property="message", type="string", example="Failed to send email.")
      *          )
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *     security={{"bearerAuth": {}}}
+     * )
      */
     public function sendMail(Request $request): JsonResponse
     {

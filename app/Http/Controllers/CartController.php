@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use OpenApi\Annotations as OA;
 
 /**
  * @OA\Tag(
@@ -28,9 +27,9 @@ class CartController extends Controller
      *              type="array",
      *              @OA\Items(ref="#/components/schemas/Cart")
      *          )
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *      security={{"bearerAuth": {}}}
+     * )
      */
     public function index(): JsonResponse
     {
@@ -51,9 +50,9 @@ class CartController extends Controller
      *          response=201,
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/Cart")
-     *      )
-     * ),
-     * security={{"bearerAuth": {}}}
+     *      ),
+     *      security={{"bearerAuth": {}}}
+     * )
      */
     public function store(Request $request): JsonResponse
     {
@@ -77,9 +76,9 @@ class CartController extends Controller
      *          response=200,
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/Cart")
-     *      )
-     * ),
-     * security={{"bearerAuth": {}}}
+     *      ),
+     *      security={{"bearerAuth": {}}}
+     * )
      */
     public function show(Cart $cart): JsonResponse
     {
@@ -107,9 +106,9 @@ class CartController extends Controller
      *          response=200,
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/Cart")
-     *      )
-     * ),
-     *  security={{"bearerAuth": {}}}
+     *      ),
+     *      security={{"bearerAuth": {}}}
+     * )
      */
     public function update(Request $request, Cart $cart): JsonResponse
     {
@@ -132,9 +131,9 @@ class CartController extends Controller
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation"
-     *      )
-     ),
-     * security={{"bearerAuth": {}}}
+     *      ),
+     *      security={{"bearerAuth": {}}}
+     * )
      */
     public function destroy(Cart $cart): JsonResponse
     {
