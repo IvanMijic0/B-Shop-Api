@@ -18,7 +18,7 @@ use Illuminate\Routing\Controller as BaseController;
  *     bearerFormat="JWT"
  * )
  * @OA\Server(
- *     url="http://localhost/api",
+ *     url="https://b-shop-api-5ntn.onrender.com/api/",
  *     description="API Server"
  * )
  */
