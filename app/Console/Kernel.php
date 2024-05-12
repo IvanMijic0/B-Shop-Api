@@ -14,12 +14,12 @@ class Kernel extends ConsoleKernel
         parent::__construct($app, $dispatcher);
     }
 
-    protected function schedule(Schedule $schedule)
+    protected function schedule(Schedule $schedule): void
     {
         $schedule->command('tld:update')->weekly();
     }
 
-    protected function commands()
+    protected function commands(): void
     {
         $this->load(__DIR__ . '/Commands');
 

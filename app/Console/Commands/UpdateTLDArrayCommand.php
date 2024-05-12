@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
@@ -25,7 +26,7 @@ class UpdateTLDArrayCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): void
     {
         try {
             $fileContent = file_get_contents('https://data.iana.org/TLD/tlds-alpha-by-domain.txt');
@@ -43,7 +44,7 @@ class UpdateTLDArrayCommand extends Command
 
             Cache::put('tlds', $tlds, now()->addWeek());
             $this->info('TLD array updated successfully.');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             Log::error('Failed to fetch TLDs: ' . $e->getMessage());
             $this->error('Failed to update TLD array.');
         }

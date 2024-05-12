@@ -79,6 +79,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
  *         example="2022-03-28T10:15:00Z"
  *     )
  * )
+ * @method static create(array $all)
  */
 class User extends Authenticatable implements JWTSubject
 {

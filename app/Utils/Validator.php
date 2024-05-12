@@ -3,6 +3,7 @@
 namespace App\Utils;
 
 use App\Http\Services\HaveIBeenPwnedService;
+use Exception;
 use libphonenumber\PhoneNumberUtil;
 use libphonenumber\NumberParseException;
 use libphonenumber\PhoneNumberType;
@@ -13,6 +14,9 @@ class Validator
     private const RESERVED_NAMES = ['admin', 'root', 'superuser'];
 
 
+    /**
+     * @throws Exception
+     */
     public static function validateRegister(string $fullName, string $username, string $password, string $email, string $phoneNumber): ?array
     {
         $fullNameError = self::validateFullName($fullName);
@@ -111,6 +115,9 @@ class Validator
         return null;
     }
 
+    /**
+     * @throws Exception
+     */
     public static function password(string $password): ?string
     {
         if (!self::min($password, 8)) {
@@ -211,6 +218,9 @@ class Validator
         return preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,}$/", $password);
     }
 
+    /**
+     * @throws Exception
+     */
     public static function validateHaveIBeenPwned(string $password): bool
     {
         $pwned = new HaveIBeenPwnedService();

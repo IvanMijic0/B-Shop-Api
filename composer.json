@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "ext-curl": "*",
         "darkaonline/l5-swagger": "^8.6",
         "giggsey/libphonenumber-for-php": "^8.13",
         "guzzlehttp/guzzle": "^7.2",
@@ -13,10 +14,10 @@
         "laravel/pail": "^1.1",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "phpmailer/phpmailer": "^6.9",
         "spomky-labs/otphp": "^11.2",
         "tymon/jwt-auth": "^2.1",
-        "zircote/swagger-php": "^4.8",
-      "ext-curl": "*"
+        "zircote/swagger-php": "^4.8"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
