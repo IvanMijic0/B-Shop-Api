@@ -3,4 +3,4 @@
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
-Route::apiResource('order', OrderController::class);
+Route::middleware('auth:api')->apiResource('orders', OrderController::class);

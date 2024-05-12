@@ -10,4 +10,6 @@ class AuthRoutes
     const GENERATE_TOTP_SECRET = 'generateTOTPSecret';
     const GENERATE_TOTP_QR_CODE = 'generateTOTPQRCode';
     const VALIDATE_TOTP_SECRET = 'validateTOTPSecret';
+    const LOGOUT = 'logout';
+    const ME = 'me';
 }
