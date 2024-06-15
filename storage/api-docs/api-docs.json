@@ -308,12 +308,12 @@
             }
         },
         "/auth/generateTOTPSecret": {
-            "post": {
+            "get": {
                 "tags": [
                     "Authentication"
                 ],
                 "summary": "Generate TOTP Secret",
-                "operationId": "c9caa1cf147a8021a77c81f07a9c4910",
+                "operationId": "bcb9c13370ac9dc548aede145beed549",
                 "responses": {
                     "200": {
                         "description": "TOTP Secret generated successfully",
@@ -346,12 +346,12 @@
             }
         },
         "/auth/generateTOTPQRCode": {
-            "post": {
+            "get": {
                 "tags": [
                     "Authentication"
                 ],
                 "summary": "Generate TOTP QR Code",
-                "operationId": "2f08063d9c89179e23982a71c823dab1",
+                "operationId": "3a6b33c51d0ae10d2cde27ef599ef501",
                 "responses": {
                     "200": {
                         "description": "TOTP QR Code generated successfully",
