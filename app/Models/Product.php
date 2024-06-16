@@ -85,6 +85,9 @@ class Product extends Model
         'name',
         'description',
         'price',
+        'seller_id',
+        'category_id',
+        'image_url'
     ];
 
     public function category(): HasMany
